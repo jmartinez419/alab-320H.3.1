@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { useState } from 'react';
 
@@ -6,7 +6,8 @@ import { useState } from 'react';
 
 export default function App() {
 
-  const [learnerData, setLearnerData] = useState([
+  const [learnerData, setLearnerData] = useState(
+    [
     {
       name: 'Cait Yomorta',
       bio: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus placeat nostrum explicabo? Voluptatibus expedita saepe officia optio, commodi totam ratione laudantium ipsum porro molestias, quasi nulla minus vitae laboriosam corrupti Delectus inventore explicabo est odit incidunt rem a recusandae eum pariatur. Aperiam doloremque blanditiis harum voluptate animi fugit beatae asperiores quo, dignissimos sed illum veniam eum accusantium nulla quod voluptatum',
@@ -68,31 +69,24 @@ export default function App() {
   ])
 
   
-
-  let data = learnerData[0]
-  let score = data.scores[0]
-  let data2 = learnerData[1]
-  let score2 = data2.scores[1]
-  let data3 = learnerData[2]
-  let score3 = data3.scores[2]
+console.log(learnerData)
+  
+ 
+  
   return (
-    <div>
-   <h1>{data.name}</h1>
-   <p>bio: {data.bio}<br/>
-   score: {score.score}<br/>
-   date: {score.date}
-   </p>
-   <h1>{data2.name}</h1>
-   <p>bio: {data2.bio}<br/>
-   score: {score2.score}<br/>
-   date: {score2.date}
-   </p>
-   <h1>{data3.name}</h1>
-   <p>bio: {data3.bio}<br/>
-   score: {score3.score}<br/>
-   date: {score3.date}
-   </p>
-    </div>
+    <>
+    {learnerData.map((learner, i) => (
+      <div key={i}>
+      <h1>{learner.name}</h1>
+      {}
+      <p>bio: {learner.bio}<br/>
+      score: {learner.scores[i].score}
+      <br/>
+      date: {learner.scores[i].date}
+      </p>
+      </div>
+    ))}
+    </>
   );
 }
 
